@@ -78,7 +78,7 @@ xmake install
 
 ## 🚀 Quick Start
 
-### C API (NumPy-Style)
+### C API
 
 ```c
 #include <tensr/tensr.h>
@@ -265,10 +265,16 @@ Special thanks to all contributors and the open-source community.
 
 ---
 
+## 🐛 Bug Reports
+
+Found a bug? Please open an issue on [GitHub](https://github.com/muhammad-fiaz/Tensr/issues).
+
+---
+
 <div align="center">
 
-Made with ❤️ by [Muhammad Fiaz](https://github.com/muhammad-fiaz)
+[![Star History Chart](https://api.star-history.com/svg?repos=muhammad-fiaz/Tensr&type=Date&bg=transparent)](https://github.com/muhammad-fiaz/Tensr/)
 
-⭐ Star us on GitHub — it motivates us a lot!
+**⭐ Star the repository if you find Tensr useful!**
 
 </div>
