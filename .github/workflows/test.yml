@@ -1,10 +1,10 @@
-name: Tests
+name: CI
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main, develop ]
   pull_request:
-    branches: [ main, dev ]
+    branches: [ main, develop ]
 
 jobs:
   test:
@@ -24,11 +24,30 @@ jobs:
     
     - name: Build
       run: |
-        xmake config -m debug
+        xmake config -m release
         xmake build
     
     - name: Run Tests
-      run: xmake run tests
+      run: |
+        xmake build tests
+        xmake run tests
     
     - name: Build Examples
-      run: xmake build examples
+      run: |
+        xmake build basic_usage
+        xmake build cpp_usage
+
+  lint:
+    name: Code Quality
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v5
+    
+    - name: Install xmake
+      uses: xmake-io/github-action-setup-xmake@v1
+    
+    - name: Check Format
+      run: |
+        xmake config
+        xmake build
