@@ -59,18 +59,26 @@ Tensor* tensr_load(const char* filename) {
     size_t ndim, size;
     TensrDType dtype;
 
-    fread(&ndim, sizeof(size_t), 1, f);
-    fread(&dtype, sizeof(TensrDType), 1, f);
-    fread(&size, sizeof(size_t), 1, f);
+    if (fread(&ndim, sizeof(size_t), 1, f) != 1) { fclose(f); return NULL; }
+    if (fread(&dtype, sizeof(TensrDType), 1, f) != 1) { fclose(f); return NULL; }
+    if (fread(&size, sizeof(size_t), 1, f) != 1) { fclose(f); return NULL; }
 
     size_t* shape = (size_t*)malloc(ndim * sizeof(size_t));
-    fread(shape, sizeof(size_t), ndim, f);
+    if (fread(shape, sizeof(size_t), ndim, f) != ndim) {
+        free(shape);
+        fclose(f);
+        return NULL;
+    }
 
     Tensor* t = tensr_create(shape, ndim, dtype, TENSR_CPU);
     free(shape);
 
     if (t) {
-        fread(t->data, tensr_dtype_size(dtype), size, f);
+        if (fread(t->data, tensr_dtype_size(dtype), size, f) != size) {
+            tensr_free(t);
+            fclose(f);
+            return NULL;
+        }
     }
 
     fclose(f);

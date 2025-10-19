@@ -28,14 +28,12 @@ jobs:
         xmake build
     
     - name: Run Tests
-      run: |
-        xmake build tests
-        xmake run tests
+      run: xmake run tests
     
     - name: Build Examples
       run: |
-        xmake build basic_usage
-        xmake build cpp_usage
+        xmake build example_c
+        xmake build example_cpp
 
   lint:
     name: Code Quality
