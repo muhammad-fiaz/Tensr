@@ -1,0 +1,89 @@
+site_name: Tensr Documentation
+site_description: A powerful, superfast multidimensional tensor library for C/C++
+site_author: Muhammad Fiaz
+site_url: https://muhammad-fiaz.github.io/tensr/
+
+repo_name: muhammad-fiaz/tensr
+repo_url: https://github.com/muhammad-fiaz/tensr
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+    - Basic Concepts: getting-started/concepts.md
+  - API Reference:
+    - C API: api/c-api.md
+    - C++ API: api/cpp-api.md
+    - Tensor Creation: api/creation.md
+    - Arithmetic Operations: api/arithmetic.md
+    - Linear Algebra: api/linalg.md
+    - Reduction Operations: api/reduction.md
+    - Shape Manipulation: api/shape.md
+    - Random Operations: api/random.md
+    - I/O Operations: api/io.md
+  - GPU Computing:
+    - CUDA Support: gpu/cuda.md
+    - Device Management: gpu/devices.md
+    - Performance Tips: gpu/performance.md
+  - Examples:
+    - Basic Usage: examples/basic.md
+    - Advanced Usage: examples/advanced.md
+    - GPU Examples: examples/gpu.md
+  - Contributing: contributing.md
+  - License: license.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji
+  - attr_list
+  - md_in_html
+  - tables
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/muhammad-fiaz/tensr
+    - icon: fontawesome/solid/envelope
+      link: mailto:contact@muhammadfiaz.com
+
+copyright: Copyright &copy; 2024 Muhammad Fiaz

@@ -1,0 +1,13 @@
+[project]
+name = "tensr"
+version = "0.0.0"
+description = "A tensor library for machine learning and scientific computing."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "conan>=2.21.0",
+    "ruff>=0.14.1",
+]

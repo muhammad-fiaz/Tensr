@@ -1,0 +1,8 @@
+{
+  "name": "tensr",
+  "version": "0.0.0",
+  "description": "A powerful, superfast multidimensional tensor library for C/C++",
+  "homepage": "https://github.com/muhammad-fiaz/tensr",
+  "license": "Apache-2.0",
+  "dependencies": []
+}

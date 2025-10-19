@@ -1,0 +1,72 @@
+# Build directories
+build/
+.xmake/
+*.o
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+
+# Conan
+.conan/
+.conan2/
+conanbuildinfo.txt
+
+# vcpkg
+vcpkg_installed/
+installed/
+buildtrees/
+packages/
+
+# xmake
+*.xmake
+.xmake_local
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Visual Studio
+*.VC.db
+*.VC.VC.opendb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test outputs
+*.bin
+test_tensor.bin
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Documentation
+site/
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+
+# Conan generated environment scripts (from virtualrunenv / virtualbuildenv)
+conan*.bat
+conan*.sh
+deactivate_conanbuild.bat
+deactivate_conanbuildenv-release-x86_64.bat
+deactivate_conanrun.bat
