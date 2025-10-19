@@ -14,7 +14,7 @@
 [![Release](https://github.com/muhammad-fiaz/Tensr/actions/workflows/release.yml/badge.svg)](https://github.com/muhammad-fiaz/Tensr/actions/workflows/release.yml)
 [![Deploy Documentation](https://github.com/muhammad-fiaz/Tensr/actions/workflows/docs.yml/badge.svg)](https://github.com/muhammad-fiaz/Tensr/actions/workflows/docs.yml)
 
-[📚 Documentation](https://muhammad-fiaz.github.io/tensr/) • [🚀 Quick Start](#-quick-start) • [🤝 Contributing](CONTRIBUTING.md)
+[📚 Documentation](https://muhammad-fiaz.github.io/Tensr/) • [🚀 Quick Start](#-quick-start) • [🤝 Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -222,7 +222,7 @@ All tests must pass before release.
 
 ## 📖 Documentation
 
-Full documentation is available at [https://muhammad-fiaz.github.io/tensr/](https://muhammad-fiaz.github.io/tensr/)
+Full documentation is available at [https://muhammad-fiaz.github.io/Tensr/](https://muhammad-fiaz.github.io/Tensr/)
 
 ### Do's ✅
 
