@@ -10,7 +10,9 @@
 [![Issues](https://img.shields.io/github/issues/muhammad-fiaz/tensr)](https://github.com/muhammad-fiaz/tensr/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/muhammad-fiaz/tensr)](https://github.com/muhammad-fiaz/tensr/pulls)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/muhammad-fiaz/tensr)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/muhammad-fiaz/tensr/test.yml?branch=main)](https://github.com/muhammad-fiaz/tensr/actions)
+[![Tests](https://github.com/muhammad-fiaz/Tensr/actions/workflows/test.yml/badge.svg)](https://github.com/muhammad-fiaz/Tensr/actions/workflows/test.yml)
+[![Release](https://github.com/muhammad-fiaz/Tensr/actions/workflows/release.yml/badge.svg)](https://github.com/muhammad-fiaz/Tensr/actions/workflows/release.yml)
+[![Deploy Documentation](https://github.com/muhammad-fiaz/Tensr/actions/workflows/docs.yml/badge.svg)](https://github.com/muhammad-fiaz/Tensr/actions/workflows/docs.yml)
 
 [📚 Documentation](https://muhammad-fiaz.github.io/tensr/) • [🚀 Quick Start](#-quick-start) • [🤝 Contributing](CONTRIBUTING.md)
 
