@@ -265,4 +265,12 @@ void seed(unsigned int s) {
     tensr_seed(s);
 }
 
+void synchronize(Device device, int device_id) {
+    tensr_synchronize(static_cast<TensrDevice>(device), device_id);
+}
+
+int device_count(Device device) {
+    return tensr_device_count(static_cast<TensrDevice>(device));
+}
+
 } // namespace tensr
