@@ -70,3 +70,5 @@ conan*.sh
 deactivate_conanbuild.bat
 deactivate_conanbuildenv-release-x86_64.bat
 deactivate_conanrun.bat
+
+build*

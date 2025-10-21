@@ -33,21 +33,30 @@ jobs:
       with:
         xmake-version: latest
     
-    - name: Build Release
+    - name: Build Release (xmake)
       run: |
         xmake config -m release
         xmake build tensr
+    
+    - name: Build Release (CMake)
+      run: |
+        cmake -B build-cmake -DCMAKE_BUILD_TYPE=Release
+        cmake --build build-cmake --config Release
     
     - name: Package (Linux/macOS)
       if: runner.os != 'Windows'
       run: |
         mkdir -p release/lib
         mkdir -p release/include
+        mkdir -p release/examples
         cp -r include/* release/include/
+        cp -r examples/* release/examples/ || true
         cp xmake.lua release/
+        cp CMakeLists.txt release/
         cp LICENSE release/
         cp README.md release/
-        find build -name "libtensr.a" -exec cp {} release/lib/ \;
+        find build -name "libtensr.a" -exec cp {} release/lib/ \; || true
+        find build-cmake -name "libtensr.a" -exec cp {} release/lib/ \; || true
         tar -czf ${{ matrix.asset_name }} -C release .
     
     - name: Package (Windows)
@@ -56,11 +65,15 @@ jobs:
       run: |
         New-Item -ItemType Directory -Force -Path release\lib
         New-Item -ItemType Directory -Force -Path release\include
+        New-Item -ItemType Directory -Force -Path release\examples
         Copy-Item -Recurse -Force include\* release\include\
+        Copy-Item -Recurse -Force examples\* release\examples\ -ErrorAction SilentlyContinue
         Copy-Item xmake.lua release\
+        Copy-Item CMakeLists.txt release\
         Copy-Item LICENSE release\
         Copy-Item README.md release\
-        Get-ChildItem -Path build -Recurse -Filter tensr.lib | Copy-Item -Destination release\lib\
+        Get-ChildItem -Path build -Recurse -Filter tensr.lib -ErrorAction SilentlyContinue | Copy-Item -Destination release\lib\
+        Get-ChildItem -Path build-cmake -Recurse -Filter tensr.lib -ErrorAction SilentlyContinue | Copy-Item -Destination release\lib\
     
     - name: Compress (Windows)
       if: runner.os == 'Windows'
@@ -107,10 +120,12 @@ jobs:
         mkdir -p conan-package
         cp conanfile.py conan-package/
         cp xmake.lua conan-package/
+        cp CMakeLists.txt conan-package/
         cp LICENSE conan-package/
         cp README.md conan-package/
         cp -r include conan-package/
         cp -r src conan-package/
+        cp -r examples conan-package/ || true
         tar -czf tensr-conan-${{ github.event.release.tag_name }}.tar.gz -C conan-package .
     
     - name: Upload Conan Package to Release
@@ -144,10 +159,12 @@ jobs:
       run: |
         mkdir -p xmake-package
         cp xmake.lua xmake-package/
+        cp CMakeLists.txt xmake-package/
         cp LICENSE xmake-package/
         cp README.md xmake-package/
         cp -r include xmake-package/
         cp -r src xmake-package/
+        cp -r examples xmake-package/ || true
         tar -czf tensr-xmake-${{ github.event.release.tag_name }}.tar.gz -C xmake-package .
     
     - name: Upload xmake Package to Release
@@ -171,10 +188,12 @@ jobs:
         mkdir -p vcpkg-port/ports/tensr
         cp vcpkg.json vcpkg-port/ports/tensr/
         cp xmake.lua vcpkg-port/ports/tensr/
+        cp CMakeLists.txt vcpkg-port/ports/tensr/
         cp LICENSE vcpkg-port/ports/tensr/
         cp README.md vcpkg-port/ports/tensr/
         cp -r include vcpkg-port/ports/tensr/
         cp -r src vcpkg-port/ports/tensr/
+        cp -r examples vcpkg-port/ports/tensr/ || true
         cat > vcpkg-port/ports/tensr/portfile.cmake << 'EOF'
         vcpkg_from_github(
             OUT_SOURCE_PATH SOURCE_PATH
